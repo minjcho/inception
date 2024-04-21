@@ -6,14 +6,14 @@ volumes:
     driver: local
     driver_opts:
       type: none
-      device: /Users/minjaecho/Downloads/ii/srcs/requirements/wordpress
+      device: /home/minjcho/inception/srcs/requirements/wordpress
       o: bind
   mariadb:
     name: mariadb
     driver: local
     driver_opts:
       type: none
-      device: /Users/minjaecho/Downloads/ii/srcs/requirements/mariadb
+      device: /home/minjcho/inception/srcs/requirements/mariadb
       o: bind            
 
 services:
