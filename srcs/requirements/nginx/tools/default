@@ -22,7 +22,7 @@ server {
 	listen 443 ssl;
 	ssl_protocols TLSv1.2 TLSv1.3;
 
-	server_name www.minjcho.fr minjcho.fr;
+	server_name minjcho.42.fr;
 
 	ssl_certificate /etc/ssl/certs/server.crt;
 	ssl_certificate_key /etc/ssl/private/server_pkey.pem;
