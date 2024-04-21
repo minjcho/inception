@@ -4,30 +4,49 @@ services:
   nginx:
     build: ./requirements/nginx/.
     container_name: nginx
+    restart: always
     depends_on:
       - wordpress
       - mariadb
     ports:
-      # - "80:80"
       - "443:443"
     volumes:
       - ./web:/var/www/html
+    env_file:
+      - .env
     networks:
       inception:
+  
   wordpress:
     build: ./requirements/wordpress/.
     container_name: wp-php
+    restart: always
     depends_on:
       - mariadb
     volumes:
       - ./web:/var/www/html
+    env_file:
+      - .env
     networks:
       inception:
+  
   mariadb:
-    build: ./requirements/mariadb/.
+    build:
+      context: ./requirements/mariadb/.
+      args:
+        DB_NAME: ${DB_NAME}
+        DB_USER: ${DB_USER}
+        DB_PASS: ${DB_PASS}
     container_name: mariadb
+    restart: always
     volumes:
       - ./database:/var/lib/mysql
+    env_file:
+      - .env
+    environment:
+      DB_NAME: ${DB_NAME}
+      DB_USER: ${DB_USER}
+      DB_PASS: ${DB_PASS}
     networks:
       inception:
 
