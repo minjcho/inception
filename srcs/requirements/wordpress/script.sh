@@ -1,5 +1,9 @@
 #!/bin/bash
 
+mkdir -p /home/minjcho/wordpress
+
+chown -R $USER:$USER /home/minjcho/wordpress
+
 cd /var/www/html
 curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
 chmod +x wp-cli.phar

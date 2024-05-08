@@ -7,5 +7,9 @@
 #     && echo "GRANT ALL PRIVILEGES ON *.* TO '\${DB_USER}'@'%' WITH GRANT OPTION;" >> /etc/mysql/init.sql \
 #     && echo "FLUSH PRIVILEGES;" >> /etc/mysql/init.sql
 
+mkdir -p /home/minjcho/mariadb
+
+chown -R $USER:$USER /home/minjcho/mariadb
+
 mysql_install_db
 mysqld
